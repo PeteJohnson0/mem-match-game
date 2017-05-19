@@ -18,7 +18,7 @@ class App extends Component {
     let { gameStarted, username } = this.state;
 
     if(gameStarted)
-      return(<Game {...this.state} />);
+      return(<Game {...this.state} setUsername={this.setUsername} />);
     else
       return(<PlayerForm username={username} setUsername={this.setUsername} startGame={this.startGame} />);
   }

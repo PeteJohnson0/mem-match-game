@@ -20,7 +20,14 @@ class Game extends Component {
   // What lifecycle method could we use each time the components state is updated to check for gameOver
 
   // figure out how to end the game once all cards are matched this probably requires more state or a lifecycle method that loops card state
-  // figure out how to start a new game
+  // figure out how to start a new game - DONE
+
+  newGame = () => {
+    this.setState({
+      flippedCardIndexes: [], 
+      matchedCardIndexs: []
+    })
+  }
   // figure out how to change the players username while in the game
   // implement a game timer and save fastest times
   // integrate this project into an express app and store this info to a database
@@ -35,6 +42,13 @@ class Game extends Component {
     this.setState({ cards });
   }
 
+  // cardsMatched = ( index, icon ) => {
+  //   let cards = this.state.cards.map( (card, loopIndex) => {
+  //     if( cards.flipped.length = 2 && cards.filter(icon === icon )
+  //       return
+  //   }
+  // }
+
   render(){
     let { username, gameStarted, gameOver } = this.props;
 
@@ -42,6 +56,11 @@ class Game extends Component {
       <div className='container'>
         <h1 className='text-center'>React Memory Match</h1>
         <h4>Current Player: { username }</h4>
+        <form>
+          <label>Username</label>
+          <input />
+          <button className='btn' onClick={this.props.setUsername}>Edit Name</button>
+        </form>
         <Board cards={ this.state.cards } updateCard={ this.updateCard }  />
       </div>
     );
